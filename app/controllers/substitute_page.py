@@ -3,7 +3,6 @@
 
 from app.views.substitute_page import SubstituteView
 from app.models.substitute import Substitute
-from app.controllers.category_page import CategoryPage
 from app.controllers.product_page import ProductPage
 
 
@@ -14,7 +13,6 @@ class SubstitutePage:
         """Initialise."""
         self.view = SubstituteView()
         self.model_substitute = Substitute()
-        self.controller_category = CategoryPage()
         self.controller_product = ProductPage()
 
     def get_input(self, category: str) -> str:
