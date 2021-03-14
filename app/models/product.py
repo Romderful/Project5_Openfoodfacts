@@ -6,6 +6,9 @@ import random
 from database.install import database
 
 
+MAX_PRODUCTS = 10
+
+
 class Product:
     """Product class."""
 
@@ -22,13 +25,12 @@ class Product:
         INNER JOIN product_category ON product.id = product_category.product_id
         INNER JOIN category ON category.id = product_category.category_id
         WHERE category.name = %s
-        LIMIT 10
         """
         category_name = (user_choice,)
         self.cursor.execute(query, (category_name))
         for row in self.cursor:
             result.append(row)
         random.shuffle(result)
-        for index, product in enumerate(result):
+        for index, product in enumerate(result[:MAX_PRODUCTS]):
             products.append({index: product})
         return products

@@ -26,11 +26,9 @@ class Substitute:
         WHERE category.name = %s AND product.nutriscore_id >= %s
         LIMIT 1
         """
-        category_name = category_choice
-        nutriscore_id = nutriscore
         ressources = (
-            category_name,
-            nutriscore_id,
+            category_choice,
+            nutriscore,
         )
         self.cursor.execute(query, (ressources))
         for row in self.cursor:

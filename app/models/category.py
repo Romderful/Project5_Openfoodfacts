@@ -6,6 +6,9 @@ import random
 from database.install import database
 
 
+MAX_CATEGORIES = 10
+
+
 class Category:
     """Catgory class."""
 
@@ -23,12 +26,11 @@ class Category:
         INNER JOIN product_category ON category.id = product_category.category_id
         INNER JOIN product ON product.id = product_category.product_id
         WHERE product.name > 9
-        LIMIT 10
         """
         self.cursor.execute(query)
         for row in self.cursor:
             result.append(row["name"])
         random.shuffle(result)
-        for index, category in enumerate(result):
+        for index, category in enumerate(result[:MAX_CATEGORIES]):
             categories.append({index: category})
         return categories
