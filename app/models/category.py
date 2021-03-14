@@ -18,7 +18,12 @@ class Category:
         """Get a list of categories."""
         result = []
         categories = []
-        query = "SELECT name FROM category"
+        query = """
+        SELECT DISTINCT category.name FROM category
+        INNER JOIN product_category ON category.id = product_category.category_id
+        INNER JOIN product ON product.id = product_category.product_id
+        WHERE product.name > 9
+        """
         self.cursor.execute(query)
         for row in self.cursor:
             result.append(row["name"])
