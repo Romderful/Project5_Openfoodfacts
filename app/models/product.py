@@ -5,8 +5,6 @@ import random
 
 from database.install import database
 
-# Rather return than using instance vars (products)
-
 
 class Product:
     """Product class."""
@@ -14,11 +12,11 @@ class Product:
     def __init__(self):
         """Initialise."""
         self.cursor = database.cnx.cursor(dictionary=True)
-        self.products = []
 
     def get_products(self, user_choice, products_number=11):
         """Get a list of products."""
         result = []
+        products = []
         query = """
         SELECT DISTINCT product.name FROM product
         INNER JOIN product_category ON product.id = product_category.product_id
@@ -31,4 +29,5 @@ class Product:
             result.append(row["name"])
         random.shuffle(result)
         for index, product in enumerate(result[:products_number]):
-            self.products.append({index: product})
+            products.append({index: product})
+        return products

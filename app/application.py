@@ -1,6 +1,7 @@
 """Application."""
 
-from app.controllers.main_page import MainPage
+from app.controllers.category_page import CategoryPage
+from app.controllers.product_page import ProductPage
 
 
 class Application:
@@ -8,11 +9,10 @@ class Application:
 
     def __init__(self):
         """Initialise."""
-        self.controller = MainPage()
-        self.running = True
+        self.category_controller = CategoryPage()
+        self.product_controller = ProductPage()
 
     def run(self):
         """Run the app."""
-        # while self.running:
-        for _ in range(2):
-            self.controller.update()
+        category = self.category_controller.get_input()
+        self.product_controller.get_input(category)

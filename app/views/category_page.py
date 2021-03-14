@@ -1,16 +1,8 @@
-"""Console view."""
+"""Category_page view."""
 
 
-# One view per controller / same name
-
-
-class ConsoleView:
-    """ConsoleView class."""
-
-    @staticmethod
-    def select_product() -> int:
-        """Prompt the user to select a product."""
-        return int(input("Sélectionnez le produit : "))
+class CategoryView:
+    """CategoryView class."""
 
     @staticmethod
     def select_category() -> int:
