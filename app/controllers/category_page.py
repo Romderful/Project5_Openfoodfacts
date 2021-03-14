@@ -13,12 +13,12 @@ class CategoryPage:
         self.view = CategoryView()
         self.model_category = Category()
 
-    def get_input(self):
+    def get_input(self) -> str:
         """Prompt the user.
 
-        Return his choice.
+        Ask him to pick a category and return his choice.
         """
-        categories = self.model_category.get_categories(categories_number=11)
+        categories = self.model_category.get_categories(categories_number=10)
         for row in categories:
             for key, value in row.items():
                 self.view.display_choice(key, value)

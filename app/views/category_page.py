@@ -11,7 +11,7 @@ class CategoryView:
 
     @staticmethod
     def display_choice(key, value):
-        """Display the index related to the product / category."""
+        """Display the index followed by the ressources."""
         print(f"{key} : {value}")
 
     @staticmethod

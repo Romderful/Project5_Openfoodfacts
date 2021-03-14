@@ -13,12 +13,12 @@ class Product:
         """Initialise."""
         self.cursor = database.cnx.cursor(dictionary=True)
 
-    def get_products(self, user_choice, products_number=11):
+    def get_products(self, user_choice: str, products_number=10) -> list:
         """Get a list of products."""
         result = []
         products = []
         query = """
-        SELECT DISTINCT product.name FROM product
+        SELECT DISTINCT product.name, product.nutriscore_id FROM product
         INNER JOIN product_category ON product.id = product_category.product_id
         INNER JOIN category ON category.id = product_category.category_id
         WHERE category.name = %s
@@ -26,7 +26,7 @@ class Product:
         category_name = (user_choice,)
         self.cursor.execute(query, (category_name))
         for row in self.cursor:
-            result.append(row["name"])
+            result.append(row)
         random.shuffle(result)
         for index, product in enumerate(result[:products_number]):
             products.append({index: product})

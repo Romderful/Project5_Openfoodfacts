@@ -12,9 +12,9 @@ class Category:
     def __init__(self):
         """Initialise."""
         self.cursor = database.cnx.cursor(dictionary=True)
-        self.get_categories(categories_number=11)
+        self.get_categories(categories_number=10)
 
-    def get_categories(self, categories_number):
+    def get_categories(self, categories_number: int) -> list:
         """Get a list of categories."""
         result = []
         categories = []
