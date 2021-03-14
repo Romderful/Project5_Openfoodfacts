@@ -15,7 +15,7 @@ class SubstitutePage:
         self.model_substitute = Substitute()
         self.controller_product = ProductPage()
 
-    def get_input(self, category: str) -> str:
+    def get_input(self, category: str) -> int:
         """Prompt the user.
 
         Ask him to pick a substitute and return his choice.
