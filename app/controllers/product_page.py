@@ -19,9 +19,7 @@ class ProductPage:
 
         Ask him to pick a product.
         """
-        products = self.model_product.get_products(
-            user_choice=category, products_number=10
-        )
+        products = self.model_product.get_products(user_choice=category)
         for row in products:
             for key, value in row.items():
                 self.view.display_choice(key, value)

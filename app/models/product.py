@@ -13,7 +13,7 @@ class Product:
         """Initialise."""
         self.cursor = database.cnx.cursor(dictionary=True)
 
-    def get_products(self, user_choice: str, products_number=10) -> list:
+    def get_products(self, user_choice: str) -> list:
         """Get a list of products."""
         result = []
         products = []
@@ -22,12 +22,13 @@ class Product:
         INNER JOIN product_category ON product.id = product_category.product_id
         INNER JOIN category ON category.id = product_category.category_id
         WHERE category.name = %s
+        LIMIT 10
         """
         category_name = (user_choice,)
         self.cursor.execute(query, (category_name))
         for row in self.cursor:
             result.append(row)
         random.shuffle(result)
-        for index, product in enumerate(result[:products_number]):
+        for index, product in enumerate(result):
             products.append({index: product})
         return products

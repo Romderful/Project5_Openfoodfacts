@@ -18,7 +18,7 @@ class CategoryPage:
 
         Ask him to pick a category and return his choice.
         """
-        categories = self.model_category.get_categories(categories_number=10)
+        categories = self.model_category.get_categories()
         for row in categories:
             for key, value in row.items():
                 self.view.display_choice(key, value)
