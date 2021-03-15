@@ -23,7 +23,7 @@ class SubstitutePage:
         substitutes = self.model_substitute.get_substitute(nutriscore, category)
         for row in substitutes:
             for key, value in row.items():
-                self.view.display_choice(key, value)
+                self.view.display_choice(value)
         self.view.jump_line()
-        user_choice = self.view.select_substitute()
+        user_choice = self.view.save_substitute()
         return user_choice
