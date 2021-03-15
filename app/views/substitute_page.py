@@ -7,7 +7,7 @@ class SubstituteView:
     @staticmethod
     def save_substitute() -> int:
         """Prompt the user to select a product."""
-        return input("Souhaitez vous sauvegarder le substitut ? : ")
+        return input("Souhaitez vous sauvegarder le substitut ? (yes / no) : ")
 
     @staticmethod
     def display_choice(value):

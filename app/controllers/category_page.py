@@ -23,7 +23,15 @@ class CategoryPage:
             for key, value in row.items():
                 self.view.display_choice(key, value)
         self.view.jump_line()
-        user_choice = self.view.select_category()
-        self.view.jump_line()
-        category_choice = categories[user_choice][user_choice]
-        return category_choice
+        user_choice = None
+        while user_choice not in range(10):
+            try:
+                user_choice = self.view.select_category()
+                category_choice = categories[user_choice][user_choice]
+            except ValueError:
+                pass
+            except IndexError:
+                pass
+            else:
+                self.view.jump_line()
+                return category_choice

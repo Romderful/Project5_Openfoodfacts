@@ -26,5 +26,7 @@ class SubstitutePage:
             for key, value in row.items():
                 self.view.display_choice(value)
         self.view.jump_line()
-        self.view.save_substitute()
+        user_choice = None
+        while user_choice not in ["yes", "no"]:
+            user_choice = self.view.save_substitute()
         return substitute

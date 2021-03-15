@@ -23,7 +23,15 @@ class ProductPage:
             for key, value in row.items():
                 self.view.display_choice(key, value)
         self.view.jump_line()
-        user_choice = self.view.select_product()
-        self.view.jump_line()
-        product_choice = products[user_choice][user_choice]
-        return product_choice
+        user_choice = None
+        while user_choice not in range(10):
+            try:
+                user_choice = self.view.select_product()
+                product_choice = products[user_choice][user_choice]
+            except ValueError:
+                pass
+            except IndexError:
+                pass
+            else:
+                self.view.jump_line()
+                return product_choice
