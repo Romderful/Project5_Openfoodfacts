@@ -1,5 +1,6 @@
 """Main_page controller."""
 
+
 from app.controllers.category_page import CategoryPage
 from app.controllers.product_page import ProductPage
 from app.controllers.substitute_page import SubstitutePage
