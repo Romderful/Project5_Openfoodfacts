@@ -15,10 +15,11 @@ class SubstitutePage:
         self.model_substitute = Substitute()
         self.controller_product = ProductPage()
 
-    def get_input(self, nutriscore: int, category: str) -> int:
+    def get_input(self, nutriscore: int, category: str) -> str:
         """Prompt the user.
 
-        Ask him to pick a substitute and return his choice.
+        Ask him whether he wants to save the substitute in the database.
+        Return his choice.
         """
         substitutes = self.model_substitute.get_substitute(nutriscore, category)
         for row in substitutes:
