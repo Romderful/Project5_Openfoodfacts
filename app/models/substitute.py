@@ -4,6 +4,10 @@
 from database.install import database
 
 
+INDEX = 0
+KEY = 0
+
+
 class Substitute:
     """Substitute class."""
 
@@ -37,7 +41,7 @@ class Substitute:
 
     def save_substitute(self, substitute: list, product: list):
         """Save the substitute in the database."""
-        substitute_name = substitute[0][0]["name"]
+        substitute_name = substitute[INDEX][KEY]["name"]
         product_name = product["name"]
         query = """
         INSERT INTO substitute (substitute_id, base_id)

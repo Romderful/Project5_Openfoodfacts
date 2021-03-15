@@ -5,6 +5,9 @@ from app.views.product_page import ProductView
 from app.models.product import Product
 
 
+MAX_PRODUCTS = 10
+
+
 class ProductPage:
     """Class ProductPage."""
 
@@ -24,7 +27,7 @@ class ProductPage:
                 self.view.display_choice(key, value)
         self.view.jump_line()
         user_choice = None
-        while user_choice not in range(10):
+        while user_choice not in range(MAX_PRODUCTS):
             try:
                 user_choice = self.view.select_product()
                 product_choice = products[user_choice][user_choice]

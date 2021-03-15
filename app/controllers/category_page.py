@@ -5,6 +5,9 @@ from app.views.category_page import CategoryView
 from app.models.category import Category
 
 
+MAX_CATEGORIES = 10
+
+
 class CategoryPage:
     """Class CategoryPage."""
 
@@ -24,7 +27,7 @@ class CategoryPage:
                 self.view.display_choice(key, value)
         self.view.jump_line()
         user_choice = None
-        while user_choice not in range(10):
+        while user_choice not in range(MAX_CATEGORIES):
             try:
                 user_choice = self.view.select_category()
                 category_choice = categories[user_choice][user_choice]
