@@ -1,11 +1,7 @@
 """Application."""
 
-from app.controllers.category_page import CategoryPage
-from app.controllers.product_page import ProductPage
-from app.controllers.substitute_page import SubstitutePage
-from app.models.substitute import Substitute
-from app.views.main_page import MainPageView
-from app.views.substitute_page import SubstituteView
+
+from app.controllers.main_page import MainPage
 
 
 class Application:
@@ -13,33 +9,11 @@ class Application:
 
     def __init__(self):
         """Initialise."""
-        self.category_controller = CategoryPage()
-        self.product_controller = ProductPage()
-        self.substitute_controller = SubstitutePage()
-        self.substitute_model = Substitute()
-        self.substitute_view = SubstituteView()
-        self.main_page_view = MainPageView()
+        self.controller_main_page = MainPage()
 
     def run(self):
         """Run the app."""
         running = True
         while running:
-            try:
-                user_choice = self.main_page_view.select_interface()
-            except ValueError:
-                pass
-            else:
-                if user_choice == 1:
-                    category = self.category_controller.get_input()
-                    product = self.product_controller.get_input(category)
-                    substitute = self.substitute_controller.get_input(
-                        category, product["nutriscore_id"]
-                    )
-                    self.substitute_model.save_substitute(substitute, product)
-                elif user_choice == 2:
-                    saved_substitutes = self.substitute_model.get_saved_substitutes()
-                    for row in saved_substitutes:
-                        for key, value in row.items():
-                            self.substitute_view.display_choice(value)
-                elif user_choice == 3:
-                    running = False
+            if not self.controller_main_page.get_input():
+                running = False
