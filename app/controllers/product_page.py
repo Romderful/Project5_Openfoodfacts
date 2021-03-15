@@ -16,7 +16,7 @@ class ProductPage:
     def get_input(self, category: str):
         """Prompt the user.
 
-        Ask him to pick a product and return the product's nutriscore.
+        Ask him to pick a product and return his choice.
         """
         products = self.model_product.get_products(category)
         for row in products:
@@ -25,5 +25,5 @@ class ProductPage:
         self.view.jump_line()
         user_choice = self.view.select_product()
         self.view.jump_line()
-        nutriscore = products[user_choice][user_choice]["nutriscore_id"]
-        return nutriscore
+        product_choice = products[user_choice][user_choice]
+        return product_choice

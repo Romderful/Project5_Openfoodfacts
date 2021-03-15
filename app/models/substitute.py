@@ -34,3 +34,20 @@ class Substitute:
         for index, product in enumerate(result):
             substitute.append({index: product})
         return substitute
+
+    def save_substitute(self, substitute: list, product: list):
+        """Save the substitute in the database."""
+        substitute_name = substitute[0][0]["name"]
+        product_name = product["name"]
+        query = """
+        INSERT INTO substitute (substitute_id, base_id)
+        VALUES(
+        (SELECT id FROM product WHERE name = %s),
+        (SELECT id FROM product WHERE name = %s))
+        """
+        ressources = (
+            substitute_name,
+            product_name,
+        )
+        self.cursor.execute(query, (ressources))
+        database.cnx.commit()
