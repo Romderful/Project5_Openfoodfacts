@@ -15,14 +15,12 @@ class SubstitutePage:
         self.model_substitute = Substitute()
         self.controller_product = ProductPage()
 
-    def get_input(self, category: str) -> int:
+    def get_input(self, nutriscore: int, category: str) -> int:
         """Prompt the user.
 
         Ask him to pick a substitute and return his choice.
         """
-        substitutes = self.model_substitute.get_substitute(
-            category_choice=category, nutriscore=self.controller_product.nutriscore
-        )
+        substitutes = self.model_substitute.get_substitute(nutriscore, category)
         for row in substitutes:
             for key, value in row.items():
                 self.view.display_choice(key, value)

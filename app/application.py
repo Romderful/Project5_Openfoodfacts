@@ -17,5 +17,5 @@ class Application:
     def run(self):
         """Run the app."""
         category = self.category_controller.get_input()
-        self.product_controller.get_input(category)
-        self.substitute_controller.get_input(category)
+        nutriscore = self.product_controller.get_input(category)
+        self.substitute_controller.get_input(category, nutriscore)

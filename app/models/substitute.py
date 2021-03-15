@@ -1,8 +1,6 @@
 """Substitute model."""
 
 
-import random
-
 from database.install import database
 
 
@@ -14,9 +12,9 @@ class Substitute:
         self.cursor = database.cnx.cursor(dictionary=True)
 
     def get_substitute(self, category_choice: str, nutriscore: int) -> list:
-        """Get a list of substitutes."""
+        """Return the substitute in a list."""
         result = []
-        substitutes = []
+        substitute = []
         query = """
         SELECT DISTINCT product.name, product.nutriscore_id, product.store, product.url
         FROM product
@@ -33,7 +31,6 @@ class Substitute:
         self.cursor.execute(query, (ressources))
         for row in self.cursor:
             result.append(row)
-        random.shuffle(result)
         for index, product in enumerate(result):
-            substitutes.append({index: product})
-        return substitutes
+            substitute.append({index: product})
+        return substitute
