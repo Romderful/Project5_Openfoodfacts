@@ -39,6 +39,23 @@ class Substitute:
             substitute.append({index: product})
         return substitute
 
+    def get_saved_substitutes(self) -> list:
+        """Return the saved substitutes in a list."""
+        result = []
+        saved_substitutes = []
+        query = """
+        SELECT product.name, product.nutriscore_id, product.store, product.url
+        FROM product
+        INNER JOIN substitute ON product.id = substitute.substitute_id
+        WHERE product.id = substitute.substitute_id
+        """
+        self.cursor.execute(query)
+        for row in self.cursor:
+            result.append(row)
+        for index, product in enumerate(result):
+            saved_substitutes.append({index: product})
+        return saved_substitutes
+
     def save_substitute(self, substitute: list, product: list):
         """Save the substitute in the database."""
         substitute_name = substitute[INDEX][KEY]["name"]

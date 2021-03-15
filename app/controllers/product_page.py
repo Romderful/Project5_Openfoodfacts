@@ -16,7 +16,7 @@ class ProductPage:
         self.view = ProductView()
         self.model_product = Product()
 
-    def get_input(self, category: str):
+    def get_input(self, category: str) -> str:
         """Prompt the user.
 
         Ask him to pick a product and return his choice.
