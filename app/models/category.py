@@ -18,7 +18,7 @@ class Category:
         self.get_categories()
 
     def get_categories(self) -> list:
-        """Get a list of categories."""
+        """Return a list of categories."""
         result = []
         categories = []
         query = """

@@ -6,7 +6,7 @@ class MainPageView:
 
     @staticmethod
     def select_interface() -> int:
-        """Prompt the user to select an interface."""
+        """Prompt the user asking for an option."""
         return int(
             input(
                 """

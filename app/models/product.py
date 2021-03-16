@@ -16,8 +16,8 @@ class Product:
         """Initialise."""
         self.cursor = database.cnx.cursor(dictionary=True)
 
-    def get_products(self, user_choice: str) -> list:
-        """Get a list of products."""
+    def get_products(self, category: str) -> list:
+        """Return a list of products."""
         result = []
         products = []
         query = """
@@ -26,7 +26,7 @@ class Product:
         INNER JOIN category ON category.id = product_category.category_id
         WHERE category.name = %s
         """
-        category_name = (user_choice,)
+        category_name = (category,)
         self.cursor.execute(query, (category_name))
         for row in self.cursor:
             result.append(row)

@@ -5,17 +5,15 @@ class ProductView:
     """ProductView class."""
 
     @staticmethod
-    def select_product() -> int:
-        """Prompt the user to select a product."""
-        return int(input("Sélectionnez le produit : "))
-
-    @staticmethod
-    def display_choice(key, value):
-        """Display the index followed by the ressources."""
-        print(f"{key} : {value['name']}\n    Nutriscore : {value['nutriscore_id']}")
-        print(30 * "-")
-
-    @staticmethod
-    def jump_line():
-        """Line jump."""
+    def display_choices(products: list):
+        """Display the choices."""
         print()
+        for row in products:
+            for key, value in row.items():
+                print(f"{key} : {value['name']} - {value['nutriscore_id']}")
+        print()
+
+    @staticmethod
+    def display_input() -> int:
+        """Prompt the user asking for a product."""
+        return int(input("Sélectionnez le produit : "))

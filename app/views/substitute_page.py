@@ -1,28 +1,45 @@
 """Substitute_page view."""
 
 
+from app.models.substitute import Substitute
+
+
 class SubstituteView:
     """SubstituteView class."""
 
-    @staticmethod
-    def save_substitute() -> int:
-        """Prompt the user to select a product."""
-        return input("Souhaitez vous sauvegarder le substitut ? (yes / no) : ")
+    def __init__(self):
+        """Initialise."""
+        self.model_substitute = Substitute()
+        self.saved_substitutes = self.model_substitute.get_saved_substitutes()
 
-    @staticmethod
-    def display_choice(value):
-        """Display the index followed by the ressources."""
-        print(
-            f"""
+    def display_saved_substitutes(self):
+        """Display the saved substitutes."""
+        for row in self.saved_substitutes:
+            for key, value in row.items():
+                print(
+                    f"""
 {value['name']}
 Nutriscore : {value['nutriscore_id']}
 Magasin : {value['store']}
 URL : {value['url']}
-            """
-        )
-        print(30 * "-")
+                    """
+                )
 
     @staticmethod
-    def jump_line():
-        """Line jump."""
-        print()
+    def display_choices(substitute: list):
+        """Display the substitute."""
+        for row in substitute:
+            for key, value in row.items():
+                print(
+                    f"""
+{value['name']}
+Nutriscore : {value['nutriscore_id']}
+Magasin : {value['store']}
+URL : {value['url']}
+                    """
+                )
+
+    @staticmethod
+    def display_input() -> str:
+        """Prompt the user and ask him whether he wants to save or not."""
+        return input("Souhaitez vous sauvegarder le substitut ? (yes / no) : ")
