@@ -18,8 +18,8 @@ class SubstituteView:
             for key, value in row.items():
                 print(
                     f"""
-{value['name']}
-Nutriscore : {value['nutriscore_id']}
+{value['ProductName']}
+Nutriscore : {value['NutriscoreName']}
 Magasin : {value['store']}
 URL : {value['url']}
                     """
@@ -32,8 +32,8 @@ URL : {value['url']}
             for key, value in row.items():
                 print(
                     f"""
-{value['name']}
-Nutriscore : {value['nutriscore_id']}
+{value['ProductName']}
+Nutriscore : {value['NutriscoreName']}
 Magasin : {value['store']}
 URL : {value['url']}
                     """

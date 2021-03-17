@@ -21,9 +21,11 @@ class Product:
         result = []
         products = []
         query = """
-        SELECT DISTINCT product.name, product.nutriscore_id FROM product
+        SELECT DISTINCT product.name AS ProductName, product.nutriscore_id,
+        nutriscore.name AS NutriscoreName FROM product
         INNER JOIN product_category ON product.id = product_category.product_id
         INNER JOIN category ON category.id = product_category.category_id
+        INNER JOIN nutriscore ON nutriscore.id = product.nutriscore_id
         WHERE category.name = %s
         """
         category_name = (category,)

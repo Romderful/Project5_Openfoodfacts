@@ -10,7 +10,7 @@ class ProductView:
         print()
         for row in products:
             for key, value in row.items():
-                print(f"{key} : {value['name']} - {value['nutriscore_id']}")
+                print(f"{key} : {value['ProductName']} - {value['NutriscoreName']}")
         print()
 
     @staticmethod
