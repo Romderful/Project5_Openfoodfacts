@@ -13,8 +13,8 @@ class ProductPage:
 
     def __init__(self, category: str):
         """Initialise."""
-        self.model_product = Product()
-        self.products = self.model_product.get_products(category)
+        self.product_model = Product()
+        self.products = self.product_model.get_products(category)
 
     def get_input(self) -> dict:
         """Return user's product choice."""

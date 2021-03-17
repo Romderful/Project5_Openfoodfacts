@@ -9,8 +9,8 @@ class SubstituteView:
 
     def __init__(self):
         """Initialise."""
-        self.model_substitute = Substitute()
-        self.saved_substitutes = self.model_substitute.get_saved_substitutes()
+        self.substitute_model = Substitute()
+        self.saved_substitutes = self.substitute_model.get_saved_substitutes()
 
     def display_saved_substitutes(self):
         """Display the saved substitutes."""

@@ -13,8 +13,8 @@ class CategoryPage:
 
     def __init__(self):
         """Initialise."""
-        self.model_category = Category()
-        self.categories = self.model_category.get_categories()
+        self.category_model = Category()
+        self.categories = self.category_model.get_categories()
 
     def get_input(self) -> str:
         """Return user's category choice."""
