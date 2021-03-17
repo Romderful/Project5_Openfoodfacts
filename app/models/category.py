@@ -22,10 +22,11 @@ class Category:
         result = []
         categories = []
         query = """
-        SELECT DISTINCT category.name FROM category
+        SELECT DISTINCT category.name, COUNT(product_id) FROM category
         INNER JOIN product_category ON category.id = product_category.category_id
         INNER JOIN product ON product.id = product_category.product_id
-        WHERE product.name > 9
+        GROUP BY category.name
+        HAVING COUNT(product.id) > 8
         """
         self.cursor.execute(query)
         for row in self.cursor:
