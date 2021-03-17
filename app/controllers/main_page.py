@@ -13,5 +13,11 @@ class MainPage:
 
     def get_input(self) -> int:
         """Return user's interface choice."""
-        user_choice = self.main_page_view.select_interface()
-        return user_choice
+        user_choice = None
+        while user_choice not in range(3):
+            try:
+                user_choice = self.main_page_view.select_interface()
+            except ValueError:
+                pass
+            else:
+                return user_choice
