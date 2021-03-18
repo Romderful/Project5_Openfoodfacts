@@ -25,7 +25,7 @@ class Category:
         SELECT DISTINCT category.name, COUNT(product_id) FROM category
         INNER JOIN product_category ON category.id = product_category.category_id
         GROUP BY category.name
-        HAVING COUNT(product_id) > 8
+        HAVING COUNT(DISTINCT product_id) > 20
         """
         self.cursor.execute(query)
         for row in self.cursor:
