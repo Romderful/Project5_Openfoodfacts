@@ -26,7 +26,7 @@ class Product:
         INNER JOIN product_category ON product.id = product_category.product_id
         INNER JOIN category ON category.id = product_category.category_id
         INNER JOIN nutriscore ON nutriscore.id = product.nutriscore_id
-        WHERE category.name = %s
+        WHERE category.name = %s AND nutriscore.id > 1
         """
         category_name = (category,)
         self.cursor.execute(query, (category_name))
