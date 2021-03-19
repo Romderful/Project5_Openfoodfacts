@@ -36,4 +36,6 @@ class Application:
             category_index = int(command.replace("goto_category_", ""))
             self.controller = ProductPage(category_index)
         if command.startswith("goto_product_"):
+            product_index = int(command.replace("goto_product_", ""))
+            self.controller = SubstitutePage(product_index)
 
