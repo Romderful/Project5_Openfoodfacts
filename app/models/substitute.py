@@ -37,7 +37,7 @@ class Substitute:
         for row in self.cursor:
             result.append(row)
         for index, product in enumerate(result):
-            substitute.append({index: product})
+            substitute.append(product)
         return substitute
 
     def get_saved_substitutes(self) -> list:
@@ -55,7 +55,7 @@ class Substitute:
         for row in self.cursor:
             result.append(row)
         for index, product in enumerate(result):
-            saved_substitutes.append({index: product})
+            saved_substitutes.append(product)
         return saved_substitutes
 
     def save_substitute(self, substitute: list, product: dict):

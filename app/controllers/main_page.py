@@ -9,15 +9,15 @@ class MainPage:
 
     def __init__(self):
         """Initialise."""
-        self.main_page_view = MainPageView()
+        self.view = MainPageView()
 
-    def get_input(self) -> int:
+    def get_command(self) -> int:
         """Return user's interface choice."""
-        user_choice = None
-        while user_choice not in range(3):
-            try:
-                user_choice = self.main_page_view.select_interface()
-            except ValueError:
-                pass
-            else:
-                return user_choice
+        choice = self.view.get_input()
+        choices = {
+            1: "goto_categories",
+            2: "goto_favorites",
+            3: "quit"
+        }
+        command = choices.get(choice, "")
+        return command
