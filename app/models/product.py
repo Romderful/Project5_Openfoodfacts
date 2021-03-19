@@ -34,5 +34,5 @@ class Product:
             result.append(row)
         random.shuffle(result)
         for index, product in enumerate(result[:MAX_PRODUCTS]):
-            products.append({index: product})
+            products.append(product)
         return products

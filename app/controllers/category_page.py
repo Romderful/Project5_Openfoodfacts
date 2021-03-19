@@ -13,19 +13,14 @@ class CategoryPage:
 
     def __init__(self):
         """Initialise."""
-        self.category_model = Category()
-        self.categories = self.category_model.get_categories()
+        self.model = Category()
+        self.categories = self.model.get_categories()
 
-    def get_input(self) -> str:
+        self.view = CategoryView(self.categories)
+
+    def get_command(self) -> str:
         """Return user's category choice."""
-        user_choice = None
-        while user_choice not in range(MAX_CATEGORIES):
-            try:
-                user_choice = CategoryView.display_input()
-                category_choice = self.categories[user_choice][user_choice]
-            except ValueError:
-                pass
-            except IndexError:
-                pass
-            else:
-                return category_choice
+        choice = self.view.get_input()
+        choices = {num: f"goto_category_{num}" for num in range(1, len(self.categories) + 1)}
+        command = choices.get(command, "")
+        return command

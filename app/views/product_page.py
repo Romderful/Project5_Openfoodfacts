@@ -4,8 +4,10 @@
 class ProductView:
     """ProductView class."""
 
-    @staticmethod
-    def display_choices(products: list):
+    def __init__(self, products: list):
+        self.products = products
+
+    def display(self):
         """Display the choices."""
         print()
         for row in products:
@@ -13,7 +15,6 @@ class ProductView:
                 print(f"{key} : {value['ProductName']} - {value['NutriscoreName']}")
         print()
 
-    @staticmethod
-    def display_input() -> int:
+    def get_input(self) -> int:
         """Prompt the user asking for a product."""
         return int(input("Sélectionnez le produit : "))

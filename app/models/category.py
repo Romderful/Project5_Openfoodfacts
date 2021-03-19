@@ -32,5 +32,5 @@ class Category:
             result.append(row["name"])
         random.shuffle(result)
         for index, category in enumerate(result[:MAX_CATEGORIES]):
-            categories.append({index: category})
+            categories.append(category)
         return categories

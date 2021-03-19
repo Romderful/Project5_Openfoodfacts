@@ -16,17 +16,13 @@ class SubstituteView:
         """Display the saved substitutes."""
         for row in self.saved_substitutes:
             for key, value in row.items():
-                print(
-                    f"""
-{value['ProductName']}
-Nutriscore : {value['NutriscoreName']}
-Magasin : {value['store']}
-URL : {value['url']}
-                    """
-                )
+                print(f"{value['ProductName']}")
+                print(f"Nutriscore : {value['NutriscoreName']}")
+                print(f"Magasin : {value['store']}")
+                print(f"URL : {value['url']}")
 
     @staticmethod
-    def display_choices(substitute: list):
+    def display(substitute: list):
         """Display the substitute."""
         for row in substitute:
             for key, value in row.items():
@@ -40,6 +36,6 @@ URL : {value['url']}
                 )
 
     @staticmethod
-    def display_input() -> str:
+    def get_input() -> str:
         """Prompt the user and ask him whether he wants to save or not."""
         return input("Souhaitez vous sauvegarder le substitut ? (oui / non) : ").lower()
