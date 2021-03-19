@@ -42,4 +42,4 @@ URL : {value['url']}
     @staticmethod
     def display_input() -> str:
         """Prompt the user and ask him whether he wants to save or not."""
-        return input("Souhaitez vous sauvegarder le substitut ? (yes / no) : ")
+        return input("Souhaitez vous sauvegarder le substitut ? (oui / non) : ").lower()

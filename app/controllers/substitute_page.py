@@ -16,8 +16,8 @@ class SubstitutePage:
     def get_input(self, product: dict) -> str:
         """Return user's choice, if 'yes', save substitute."""
         user_choice = None
-        while user_choice not in ["yes", "no"]:
+        while user_choice not in ["oui", "non"]:
             user_choice = SubstituteView.display_input()
-            if user_choice == "yes":
+            if user_choice == "oui":
                 self.substitute_model.save_substitute(self.substitute, product)
         return user_choice
