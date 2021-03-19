@@ -10,5 +10,5 @@ class MainPageView:
         print("2 - Retrouver mes aliments substitués.")
         print("3 - Quitter le programme.")
 
-    def get_input(self)
+    def get_input(self):
         return int(input())

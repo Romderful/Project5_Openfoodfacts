@@ -10,7 +10,7 @@ class ProductView:
     def display(self):
         """Display the choices."""
         print()
-        for row in products:
+        for row in self.products:
             for key, value in row.items():
                 print(f"{key} : {value['ProductName']} - {value['NutriscoreName']}")
         print()

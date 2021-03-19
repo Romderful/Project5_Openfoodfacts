@@ -11,9 +11,8 @@ class CategoryView:
     def display(self):
         """Display the choices."""
         print()
-        for row in self.categories:
-            for key, value in row.items():
-                print(f"{key} : {value}")
+        for index, row in enumerate(self.categories, start=1):
+            print(f"{index} : {row}")
         print()
 
     def get_input(self) -> int:
