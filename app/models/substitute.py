@@ -16,7 +16,7 @@ class Substitute:
         self.cursor = database.cnx.cursor(dictionary=True)
 
     def get_substitute(self, category: str, nutriscore: int) -> list:
-        """Return the substitute in a list."""
+        """Return a dictionnary in a list  [{index: substitute}]."""
         result = []
         substitute = []
         query = """
@@ -26,7 +26,7 @@ class Substitute:
         INNER JOIN category ON category.id = product_category.category_id
         INNER JOIN nutriscore ON nutriscore.id = product.nutriscore_id
         WHERE category.name = %s
-        AND product.nutriscore_id < %s
+        AND product.nutriscore_id <= %s
         LIMIT 1
         """
         ressources = (
@@ -37,11 +37,11 @@ class Substitute:
         for row in self.cursor:
             result.append(row)
         for index, product in enumerate(result):
-            substitute.append(product)
+            substitute.append({index: product})
         return substitute
 
     def get_saved_substitutes(self) -> list:
-        """Return the saved substitutes in a list."""
+        """Return a list of dictionnaries [{index: saved_substitute}, ...]."""
         result = []
         saved_substitutes = []
         query = """
@@ -55,7 +55,7 @@ class Substitute:
         for row in self.cursor:
             result.append(row)
         for index, product in enumerate(result):
-            saved_substitutes.append(product)
+            saved_substitutes.append({index: product})
         return saved_substitutes
 
     def save_substitute(self, substitute: list, product: dict):

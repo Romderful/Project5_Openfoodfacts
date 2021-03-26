@@ -18,19 +18,21 @@ class Category:
         self.get_categories()
 
     def get_categories(self) -> list:
-        """Return a list of categories."""
+        """Return a list of dictionnaries [{index: categories}, ...]."""
         result = []
         categories = []
         query = """
         SELECT DISTINCT category.name, COUNT(product_id) FROM category
         INNER JOIN product_category ON category.id = product_category.category_id
+        INNER JOIN product ON product.id = product_category.product_id
+        WHERE nutriscore_id >= 1
         GROUP BY category.name
-        HAVING COUNT(DISTINCT product_id) > 20
+        HAVING COUNT(DISTINCT product_id) > 9
         """
         self.cursor.execute(query)
         for row in self.cursor:
             result.append(row["name"])
         random.shuffle(result)
         for index, category in enumerate(result[:MAX_CATEGORIES]):
-            categories.append(category)
+            categories.append({index: category})
         return categories

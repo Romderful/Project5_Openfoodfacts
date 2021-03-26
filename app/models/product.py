@@ -17,7 +17,7 @@ class Product:
         self.cursor = database.cnx.cursor(dictionary=True)
 
     def get_products(self, category: str) -> list:
-        """Return a list of products."""
+        """Return a list of dictionnaries [{index: products}, ...]."""
         result = []
         products = []
         query = """
@@ -34,5 +34,5 @@ class Product:
             result.append(row)
         random.shuffle(result)
         for index, product in enumerate(result[:MAX_PRODUCTS]):
-            products.append(product)
+            products.append({index: product})
         return products

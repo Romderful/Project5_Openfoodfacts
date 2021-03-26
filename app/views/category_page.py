@@ -4,17 +4,16 @@
 class CategoryView:
     """CategoryView class."""
 
-    def __init__(self, categories):
-        """Init the categories."""
-        self.categories = categories
-
-    def display(self):
+    @staticmethod
+    def display_choices(categories: list):
         """Display the choices."""
         print()
-        for index, row in enumerate(self.categories, start=1):
-            print(f"{index} : {row}")
+        for row in categories:
+            for key, value in row.items():
+                print(f"{key} : {value}")
         print()
 
-    def get_input(self) -> int:
-        """Prompt the user asking for a category."""
+    @staticmethod
+    def display_input() -> int:
+        """Prompt the user and ask for a category."""
         return int(input("Sélectionnez la catégorie : "))

@@ -4,11 +4,15 @@
 class MainPageView:
     """MainPageView class."""
 
-    def display(self):
-        """Prompt the user asking for an option."""
-        print("1 - Quel aliment souhaitez vous remplacer ?")
-        print("2 - Retrouver mes aliments substitués.")
-        print("3 - Quitter le programme.")
-
-    def get_input(self):
-        return int(input())
+    @staticmethod
+    def select_interface() -> int:
+        """Prompt the user and ask for an option."""
+        return int(
+            input(
+                """
+1 - Quel aliment souhaitez vous remplacer ?
+2 - Retrouver mes aliments substitués.
+3 - Quitter le programme.
+"""
+            )
+        )
