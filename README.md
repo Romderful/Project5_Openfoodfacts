@@ -25,7 +25,9 @@ HOST = "localhost"
 DATABASE = "openfoodfacts"
 CHARSET = "utf8"
 
-python install.py # install the dabatase on your computer
+source ../create_database.sql # mysql server
+
+python install.py # Implement the database with the datas extracted from the API
 ```
 
 ## Usage
