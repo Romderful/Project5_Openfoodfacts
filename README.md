@@ -1,13 +1,16 @@
 # OpenFoodFacts - Openclassrooms project 5
 
-The idea of Pur Beurre is to create a program that interacts with the OpenFoodFacts database. This program makes it possible to recover food from the database of OpenFoodFacts, compare them and offer the user a healthier substitute to the food that he chose previously. : [link to github](https://github.com/Romderful/Project3_MacGyver)
+The idea of Pur Beurre is to create a program that interacts with the OpenFoodFacts database. This program makes it possible to recover food from the database of OpenFoodFacts, compare them and offer the user a healthier substitute to the food that he chose previously. : [link to github](https://github.com/Romderful/Project5_Openfoodfacts)
 
 ## Installation
 
-Clone [the repository](https://github.com/Romderful/Project3_MacGyver) on your computer.
+Clone [the repository](https://github.com/Romderful/Project5_Openfoodfacts) on your computer.
+
 
 Set your virtual environment under [python 3.9](https://www.python.org/downloads/release/python-380/)
+
 Install mysql_server on your computer [mysql_server](https://dev.mysql.com/downloads/mysql/)
+
 
 ```bash
 python -m venv .venv  # create the virtual environment
