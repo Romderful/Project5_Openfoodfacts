@@ -2,10 +2,7 @@
 
 
 from app.models.product import Product
-from app.views.product_page import ProductView
-
-
-MAX_PRODUCTS = 10
+from app.views.product import ProductView
 
 
 class ProductPage:
@@ -19,7 +16,7 @@ class ProductPage:
     def get_input(self) -> dict:
         """Return user's product choice."""
         user_choice = None
-        while user_choice not in range(MAX_PRODUCTS):
+        while user_choice not in range(len(self.products)):
             try:
                 user_choice = ProductView.display_input()
                 product_choice = self.products[user_choice][user_choice]

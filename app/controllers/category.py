@@ -2,10 +2,7 @@
 
 
 from app.models.category import Category
-from app.views.category_page import CategoryView
-
-
-MAX_CATEGORIES = 10
+from app.views.category import CategoryView
 
 
 class CategoryPage:
@@ -19,7 +16,7 @@ class CategoryPage:
     def get_input(self) -> str:
         """Return user's category choice."""
         user_choice = None
-        while user_choice not in range(MAX_CATEGORIES):
+        while user_choice not in range(len(self.categories)):
             try:
                 user_choice = CategoryView.display_input()
                 category_choice = self.categories[user_choice][user_choice]

@@ -2,7 +2,7 @@
 
 
 from app.models.substitute import Substitute
-from app.views.substitute_page import SubstituteView
+from app.views.substitute import SubstituteView
 
 
 class SubstitutePage:

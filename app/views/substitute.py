@@ -26,18 +26,24 @@ URL : {value['url']}
                 )
 
     @staticmethod
-    def display_choices(substitute: list):
+    def display_choices(substitute: list) -> bool:
         """Display the substitute."""
-        for row in substitute:
-            for key, value in row.items():
-                print(
-                    f"""
+        if not substitute:
+            print()
+            print("Désolé, nous n'avons pas de substitut à proposer")
+            return False
+        else:
+            for row in substitute:
+                for key, value in row.items():
+                    print(
+                        f"""
 {value['ProductName']}
-Nutriscore : {value['NutriscoreName']}
-Magasin : {value['store']}
-URL : {value['url']}
+Nutriscore: {value['NutriscoreName']}
+Magasin: {value['store']}
+URL: {value['url']}
                     """
-                )
+                    )
+                    return True
 
     @staticmethod
     def display_input() -> str:

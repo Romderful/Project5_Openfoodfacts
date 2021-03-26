@@ -10,7 +10,7 @@ class CategoryView:
         print()
         for row in categories:
             for key, value in row.items():
-                print(f"{key} : {value}")
+                print(f"{key}: {value}")
         print()
 
     @staticmethod

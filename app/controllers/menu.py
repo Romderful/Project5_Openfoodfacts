@@ -1,7 +1,7 @@
 """Main_page controller."""
 
 
-from app.views.main_page import MainPageView
+from app.views.menu import MainPageView
 
 
 class MainPage:
@@ -9,14 +9,14 @@ class MainPage:
 
     def __init__(self):
         """Initialise."""
-        self.main_page_view = MainPageView()
+        self.menu_view = MainPageView()
 
     def get_input(self) -> int:
         """Return user's interface choice."""
         user_choice = None
         while user_choice not in range(3):
             try:
-                user_choice = self.main_page_view.select_interface()
+                user_choice = self.menu_view.select_interface()
             except ValueError:
                 pass
             else:

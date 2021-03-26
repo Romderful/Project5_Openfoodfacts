@@ -1,13 +1,13 @@
 """Application."""
 
 
-from app.controllers.category_page import CategoryPage
-from app.controllers.product_page import ProductPage
-from app.controllers.substitute_page import SubstitutePage
-from app.controllers.main_page import MainPage
-from app.views.category_page import CategoryView
-from app.views.product_page import ProductView
-from app.views.substitute_page import SubstituteView
+from app.controllers.category import CategoryPage
+from app.controllers.product import ProductPage
+from app.controllers.substitute import SubstitutePage
+from app.controllers.menu import MainPage
+from app.views.category import CategoryView
+from app.views.product import ProductView
+from app.views.substitute import SubstituteView
 
 
 class Application:
@@ -20,8 +20,8 @@ class Application:
     def run(self):
         """Run the app."""
         while self.running:
-            main_page_controller = MainPage()
-            user_choice = main_page_controller.get_input()
+            menu_controller = MainPage()
+            user_choice = menu_controller.get_input()
 
             if user_choice == 1:
                 category_controller = CategoryPage()
@@ -35,8 +35,8 @@ class Application:
                 substitute_controller = SubstitutePage(
                     category, product["nutriscore_id"]
                 )
-                SubstituteView.display_choices(substitute_controller.substitute)
-                substitute_controller.get_input(product)
+                if SubstituteView.display_choices(substitute_controller.substitute):
+                    substitute_controller.get_input(product)
 
             elif user_choice == 2:
                 substitute_view = SubstituteView()
