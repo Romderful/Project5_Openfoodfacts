@@ -26,7 +26,7 @@ class Substitute:
         INNER JOIN category ON category.id = product_category.category_id
         INNER JOIN nutriscore ON nutriscore.id = product.nutriscore_id
         WHERE category.name = %s
-        AND product.nutriscore_id <= %s
+        AND product.nutriscore_id < %s
         LIMIT 1
         """
         ressources = (
