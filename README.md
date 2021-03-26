@@ -6,8 +6,8 @@ The idea of Pur Beurre is to create a program that interacts with the OpenFoodFa
 
 Clone [the repository](https://github.com/Romderful/Project3_MacGyver) on your computer.
 
-> Set your virtual environment under [python 3.9](https://www.python.org/downloads/release/python-380/)
-> Install mysql_server on your computer [mysql_server](https://dev.mysql.com/downloads/mysql/)
+Set your virtual environment under [python 3.9](https://www.python.org/downloads/release/python-380/)
+Install mysql_server on your computer [mysql_server](https://dev.mysql.com/downloads/mysql/)
 
 ```bash
 python -m venv .venv  # create the virtual environment
