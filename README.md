@@ -7,7 +7,7 @@ The idea of Pur Beurre is to create a program that interacts with the OpenFoodFa
 Clone [the repository](https://github.com/Romderful/Project5_Openfoodfacts) on your computer.
 
 
-Set your virtual environment under [python 3.9](https://www.python.org/downloads/release/python-380/)
+Set your virtual environment under [python 3.9](https://www.python.org/downloads/release/python-392/)
 
 Install mysql_server on your computer [mysql_server](https://dev.mysql.com/downloads/mysql/)
 
